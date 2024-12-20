@@ -25,6 +25,8 @@ int main() {
 	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
 	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
 	C2D_Prepare();
+	g_dynamicBuf = C2D_TextBufNew(4096);
+
 
 	// 描画バッファ
 	C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
@@ -46,26 +48,26 @@ int main() {
 		C2D_SceneBegin(top);
 		// ステージ
 		C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 0),
-			(float)(TOP_WIDTH),
-			(float)(TOP_HEIGHT),
+			(float)(0),
+			(float)(0),
 			0.5f, NULL, 1.0f, 1.0f);
 
 		switch (scene) {
 		case 0:	//タイトル画面
 
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(TOP_WIDTH),(float)(40),0.5f,NULL,1.0f,1.0f);
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH),(float)(150),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(TOP_WIDTH/2),(float)(40),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,NULL,1.0f,1.0f);
 			if (key & KEY_A) scene = 1;
 
 			break;
 
 		case 1:	//ゲーム画面
 
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH),(float)(150),0.5f,NULL,1.0f,1.0f);
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT/2),0.5f,NULL,1.0f,1.0f);
 			if (key & KEY_X) ++count;
 
-			snprintf(get_buffer(), BUFFER_SIZE, "%d", (char)count);
+			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
 			draw_text(300, 0, get_buffer());
 			break;
 		}
