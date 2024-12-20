@@ -11,7 +11,7 @@
 #include "main.h"
 
 // SDカードからテクスチャを読み込む
-const char* texturePath = "romfs:/image.t3x";
+const char* texturePath = "sdmc:/3ds/onigiri/image.t3x";
 char buffer[BUFFER_SIZE];
 int scene = 0, count = 0;
 
