@@ -68,7 +68,7 @@ int main() {
 			if (key & KEY_X) ++count;
 
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
-			draw_text(300, 0, get_buffer());
+			draw_text(100, TOP_HEIGHT/2, get_buffer());
 			break;
 		}
 
