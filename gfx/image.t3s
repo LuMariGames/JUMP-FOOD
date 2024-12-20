@@ -1,2 +1,4 @@
---atlas -f rgba8888 -z auto
-world.png
+--atlas -f rgba5551 -z auto
+background.png
+title.png
+onigiri.png
