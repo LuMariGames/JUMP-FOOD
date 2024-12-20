@@ -40,9 +40,9 @@ GRAPHICS	:=	gfx
 #GFXBUILD	:=	$(BUILD)
 ROMFS		:=	romfs
 GFXBUILD	:=	$(ROMFS)
-APP_TITLE	:=	タイトル名
-APP_DESCRIPTION	:=	説明文
-APP_AUTHOR 	:=	作者名
+APP_TITLE	:=	THE JUMPING ONIGIRI
+APP_DESCRIPTION	:=	プチゲーム
+APP_AUTHOR 	:=	MarioGames
 
 #---------------------------------------------------------------------------------
 # options for code generation
