@@ -20,4 +20,4 @@ jobs:
         name: Build
         path: |
           test.3dsx
-          test.cia
+          romfs/image.t3x
