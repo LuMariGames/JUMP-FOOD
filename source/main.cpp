@@ -55,7 +55,7 @@ int main() {
 			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT),0.5f,NULL,1.0f,1.0f);
 			if (key & KEY_X) ++count;
 
-			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
+			snprintf(get_buffer(), BUFFER_SIZE, "%d", (char)count);
 			draw_text(300, 0, get_buffer());
 			break;
 		}
