@@ -11,7 +11,7 @@
 #include "main.h"
 
 // SDカードからテクスチャを読み込む
-const char* texturePath = "sdmc:/3ds/onigiri/image.t3x";
+const char* texturePath = "romfs:/image.t3x";
 char buffer[BUFFER_SIZE];
 int scene = 0, count = 0;
 
@@ -64,11 +64,11 @@ int main() {
 		case 1:	//ゲーム画面
 
 			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,0,NULL,1.0f,1.0f);
-			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT/2),0.5f,0,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(80),(float)(TOP_HEIGHT/2),0.5f,0,NULL,1.0f,1.0f);
 			if (key & KEY_X) ++count;
 
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
-			draw_text(100, TOP_HEIGHT/2, get_buffer());
+			draw_text(75, (TOP_HEIGHT/2)-10, get_buffer());
 			break;
 		}
 
