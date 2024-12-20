@@ -19,5 +19,5 @@ jobs:
       with:
         name: Build
         path: |
-          test.3dsx
+          THE-JUMPING-ONIGIRI.3dsx
           romfs/image.t3x
