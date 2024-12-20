@@ -55,16 +55,16 @@ int main() {
 		switch (scene) {
 		case 0:	//タイトル画面
 
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(TOP_WIDTH/2),(float)(40),0.5f,NULL,1.0f,1.0f);
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(TOP_WIDTH/2),(float)(40),0.5f,0,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,0,NULL,1.0f,1.0f);
 			if (key & KEY_A) scene = 1;
 
 			break;
 
 		case 1:	//ゲーム画面
 
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,NULL,1.0f,1.0f);
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT/2),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,0,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT/2),0.5f,0,NULL,1.0f,1.0f);
 			if (key & KEY_X) ++count;
 
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
