@@ -46,7 +46,7 @@ int main() {
 		C2D_TargetClear(top, C2D_Color32(0, 0, 0, 1));
 		C2D_SceneBegin(top);
 		// ステージ
-		C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 0),
+		C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 0),
 			(float)(0.5),
 			(float)(0.5),
 			0.5f, NULL, 1.0f, 1.0f);
@@ -54,15 +54,15 @@ int main() {
 		switch (scene) {
 		case 0:	//タイトル画面
 
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(0.5),(float)(1/6),0.5f,NULL,1.0f,1.0f);
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(0.5),(float)(0.625),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(0.5),(float)(1/6),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(0.5),(float)(0.625),0.5f,NULL,1.0f,1.0f);
 			if (key & KEY_A) scene = 1;
 
 			break;
 
 		case 1:	//ゲーム画面
 
-			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH),(float)(0.625),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(0.5),(float)(0.625),0.5f,NULL,1.0f,1.0f);
 			if (key & KEY_X) ++count;
 
 			break;
