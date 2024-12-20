@@ -1,19 +1,4 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <3ds.h>
-#include <citro2d.h>
-#include <limits.h>
-#include <math.h>
-#include <dirent.h>
-#include <unistd.h>
-#include <ctype.h>
-
-#define TOP_WIDTH  400
-#define TOP_HEIGHT 240
-#define BOTTOM_WIDTH  320
-#define BOTTOM_HEIGHT 240
-#define BUFFER_SIZE 160
+#include "main.h"
 
 // SDカードからテクスチャを読み込む
 const char* texturePath = "romfs:/image.t3x";
@@ -67,6 +52,7 @@ int main() {
 		case 1:	//ゲーム画面
 
 			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH),(float)(150),0.5f,NULL,1.0f,1.0f);
+			C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(100),(float)(TOP_HEIGHT),0.5f,NULL,1.0f,1.0f);
 			if (key & KEY_X) ++count;
 
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
