@@ -39,7 +39,7 @@ int main() {
 		if (kDown & KEY_START) break;  // STARTボタンで終了
 
 		//ジャンプ部分のコード、変数「jump」が負の値なら勝手に落ちる
-		y += jump;
+		y -= jump;
 		--jump;
 		if (150.0 <= y) {	//おにぎりのy座標が150を越えたら止める
 			y = 150.0;
@@ -53,10 +53,10 @@ int main() {
 		C2D_TargetClear(top, C2D_Color32(0, 0, 0, 1));
 		C2D_SceneBegin(top);
 		// ステージ
-		C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 0),0,0,0.5f, NULL, 1.0f, 1.0f);
+		C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 0),0,0,0.5f,NULL,1.0f,1.0f);
 
 		//おにぎり
-		C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),TOP_WIDTH/2, y, 0.5f,0,NULL,1.0f,1.0f);
+		C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),TOP_WIDTH/2,y,0.5f,0,NULL,1.0f,1.0f);
 
 		switch (scene) {
 		case 0:	//タイトル画面
