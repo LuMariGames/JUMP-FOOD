@@ -41,7 +41,7 @@ GRAPHICS	:=	gfx
 ROMFS		:=	romfs
 GFXBUILD	:=	$(ROMFS)
 APP_TITLE	:=	JUMP FOOD
-APP_DESCRIPTION	:=	A clone of "THE JUMPING ONIGIRI"
+APP_DESCRIPTION	:=	A clone of THE JUMPING ONIGIRI
 APP_AUTHOR 	:=	MarioGames
 
 #---------------------------------------------------------------------------------
