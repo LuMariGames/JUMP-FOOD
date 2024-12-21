@@ -43,7 +43,7 @@ GFXBUILD	:=	$(ROMFS)
 APP_TITLE	:=	JUMP FOOD
 APP_DESCRIPTION	:=	A clone of THE JUMPING ONIGIRI
 APP_AUTHOR 	:=	MarioGames
-
+ICON        	:=	resource/icon.png
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
