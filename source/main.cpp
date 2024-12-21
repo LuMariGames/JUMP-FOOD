@@ -7,7 +7,8 @@
 // SDカードからテクスチャを読み込む
 const char* texturePath = "romfs:/image.t3x";
 char buffer[BUFFER_SIZE];
-int scene = 0, count = 0;
+int scene = 0, count = 0, jump = 0;
+float y = 150.0;
 
 C2D_TextBuf g_dynamicBuf;
 C2D_Text dynText;
@@ -37,6 +38,14 @@ int main() {
 		unsigned int key = hidKeysDown();
 		if (kDown & KEY_START) break;  // STARTボタンで終了
 
+		//ジャンプ部分のコード、変数「jump」が負の値なら勝手に落ちる
+		y += jump;
+		--jump;
+		if (150.0 <= y) {	//おにぎりのy座標が150を越えたら止める
+			y = 150.0
+			jump = 0;	//念の為初期値にする
+		}
+
 		// 描画開始
 		C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
@@ -44,29 +53,30 @@ int main() {
 		C2D_TargetClear(top, C2D_Color32(0, 0, 0, 1));
 		C2D_SceneBegin(top);
 		// ステージ
-		C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 0),
-			(float)(0),
-			(float)(0),
-			0.5f, NULL, 1.0f, 1.0f);
+		C2D_DrawImageAt(C2D_SpriteSheetGetImage(spriteSheet, 0),0,0,0.5f, NULL, 1.0f, 1.0f);
+
+		//おにぎり
+		C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),TOP_WIDTH/2, y, 0.5f,0,NULL,1.0f,1.0f);
 
 		switch (scene) {
 		case 0:	//タイトル画面
 
-			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 1),(float)(TOP_WIDTH/2),(float)(40),0.5f,0,NULL,1.0f,1.0f);
-			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,0,NULL,1.0f,1.0f);
+			//タイトルロゴ
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 1),TOP_WIDTH/2,40,0.5f,0,NULL,1.0f,1.0f);
 			if (key & KEY_A) scene = 1;
 
 			break;
 
 		case 1:	//ゲーム画面
 
-			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 2),(float)(TOP_WIDTH/2),(float)(150),0.5f,0,NULL,1.0f,1.0f);
-			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 3),(float)(80),(float)(TOP_HEIGHT/2),0.5f,0,NULL,1.0f,1.0f);
-			if (key & KEY_X) {
-				play_sound(0);
+			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 3),80,TOP_HEIGHT/2,0.5f,0,NULL,1.0f,1.0f);
+			if (key & KEY_X) {	//Xボタンが押された時に実行する部分
+				play_sound(0);	//ジャンプ音
 				++count;
+				jump += 8;
 			}
 
+			//Xボタンを押した回数を表示
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
 			draw_text(70, (TOP_HEIGHT/2)-10, get_buffer());
 			break;
