@@ -5,7 +5,7 @@
 #include "audio.h"
 
 // SDカードからテクスチャを読み込む
-const char* texturePath = "romfs:/gfx/image.t3x";
+const char* texturePath = "romfs:/image.t3x";
 char buffer[BUFFER_SIZE];
 int scene = 0, count = 0;
 
