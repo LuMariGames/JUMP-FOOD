@@ -29,7 +29,7 @@ int main() {
 	C3D_RenderTarget* bot = C2D_CreateScreenTarget(GFX_BOTTOM, GFX_LEFT);
 
 	spriteSheet = C2D_SpriteSheetLoad(texturePath);
-	sd_load_sound();
+	load_sound();
 
 	while (aptMainLoop()) {
 		hidScanInput();
