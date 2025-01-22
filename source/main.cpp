@@ -24,6 +24,7 @@ int main() {
 	g_dynamicBuf = C2D_TextBufNew(4096);
 	gfxSetWide(false);
 	osSetSpeedupEnable(false);
+	C3D_FrameRate(30);
 
 	// 描画バッファ
 	C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
@@ -47,6 +48,7 @@ int main() {
 		}
 
 		// 描画開始
+		C3D_FrameSync();
 		C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
 		// 上画面を描画
