@@ -6,6 +6,7 @@
 
 // SDカードからテクスチャを読み込む
 const char* texturePath = "romfs:/image.t3x";
+C2D_Font font;
 char buffer[BUFFER_SIZE];
 int scene = 0, count = 0, jump = 0;
 float y = 150.0;
@@ -29,6 +30,7 @@ int main() {
 
 	spriteSheet = C2D_SpriteSheetLoad(texturePath);
 	load_sound();
+	font = C2D_FontLoad("romfs:/font.bcfnt");
 
 	while (aptMainLoop()) {
 		hidScanInput();
@@ -90,13 +92,13 @@ int main() {
 
 	// リソースの解放
 	C2D_TextBufDelete(g_dynamicBuf);
+	C2D_FontFree(font);
 
 	C2D_Fini();
 	C3D_Fini();
 	gfxExit();
 	romfsExit();
 	exit_music();
-
 	return 0;
 }
 
