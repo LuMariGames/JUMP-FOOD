@@ -22,9 +22,6 @@ int main() {
 	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
 	C2D_Prepare();
 	g_dynamicBuf = C2D_TextBufNew(4096);
-	gfxSetWide(false);
-	osSetSpeedupEnable(false);
-	C3D_FrameRate(30);
 
 	// 描画バッファ
 	C3D_RenderTarget* top = C2D_CreateScreenTarget(GFX_TOP, GFX_LEFT);
@@ -48,7 +45,6 @@ int main() {
 		}
 
 		// 描画開始
-		C3D_FrameSync();
 		C3D_FrameBegin(C3D_FRAME_SYNCDRAW);
 
 		// 上画面を描画
@@ -109,7 +105,7 @@ void draw_text(float x, float y, const char *text) {
 	C2D_TextBufClear(g_dynamicBuf);
 	C2D_TextParse(&dynText, g_dynamicBuf, text);
 	C2D_TextOptimize(&dynText);
-	C2D_DrawText(&dynText, C2D_WithColor, x, y, 0.5f, 0.5f, 0.5f, C2D_Color32f(1.0f, 1.0f, 1.0f, 1.0f));
+	C2D_DrawText(&dynText, C2D_WithColor | C2D_AlignCenter, x, y, 0.5f, 0.5f, 0.5f, C2D_Color32f(1.0f, 1.0f, 1.0f, 1.0f));
 }
 
 char *get_buffer() {
