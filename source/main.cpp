@@ -78,7 +78,7 @@ int main() {
 
 			//Xボタンを押した回数を表示
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
-			draw_text(70, (TOP_HEIGHT/2)-10, get_buffer());
+			draw_text(80, TOP_HEIGHT/2, get_buffer());
 			break;
 		}
 
@@ -105,9 +105,9 @@ int main() {
 void draw_text(float x, float y, const char *text) {
 
 	C2D_TextBufClear(g_dynamicBuf);
-	C2D_TextParse(&dynText, g_dynamicBuf, text);
+	C2D_TextFontParse(&dynText, font, g_dynamicBuf, text);
 	C2D_TextOptimize(&dynText);
-	C2D_DrawText(&dynText, C2D_WithColor | C2D_AlignCenter, x, y, 0.5f, 0.5f, 0.5f, C2D_Color32f(1.0f, 1.0f, 1.0f, 1.0f));
+	C2D_DrawText(&dynText, C2D_WithColor | C2D_AlignCenter, x, y, 1.0f, 1.0f, 1.0f, C2D_Color32f(1.0f, 1.0f, 1.0f, 1.0f));
 }
 
 char *get_buffer() {
