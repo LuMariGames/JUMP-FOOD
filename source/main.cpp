@@ -73,7 +73,7 @@ int main() {
 			if (149.99 <= y && key & KEY_X) {	//Xボタンが押された時に実行する部分
 				play_sound(0);	//ジャンプ音
 				++count;
-				jump == 5;
+				jump = 5;
 			}
 
 			//Xボタンを押した回数を表示
