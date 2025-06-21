@@ -78,7 +78,7 @@ int main() {
 
 			//Xボタンを押した回数を表示
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
-			draw_text(80, TOP_HEIGHT/2, get_buffer());
+			draw_text(80, (TOP_HEIGHT/2)-15, get_buffer());
 			break;
 		}
 
