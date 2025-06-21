@@ -8,8 +8,8 @@
 const char* texturePath = "romfs:/image.t3x";
 C2D_Font font;
 char buffer[BUFFER_SIZE];
-int scene = 0, count = 0, jump = 0;
-float y = 150.0;
+int scene = 0, count = 0;
+float y = 150.0, jump = 0;
 
 C2D_TextBuf g_dynamicBuf;
 C2D_Text dynText;
@@ -40,7 +40,7 @@ int main() {
 
 		//ジャンプ部分のコード、変数「jump」が負の値なら勝手に落ちる
 		y -= jump;
-		jump -= 0.4;
+		jump -= 0.5;
 		if (150.0 <= y) {	//おにぎりのy座標が150を越えたら止める
 			y = 150.0;
 			jump = 0;	//念の為初期値にする
@@ -73,7 +73,7 @@ int main() {
 			if (149.99 <= y && key & KEY_X) {	//Xボタンが押された時に実行する部分
 				play_sound(0);	//ジャンプ音
 				++count;
-				jump += 4;
+				jump == 5;
 			}
 
 			//Xボタンを押した回数を表示
