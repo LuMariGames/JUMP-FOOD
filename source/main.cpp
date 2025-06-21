@@ -70,7 +70,7 @@ int main() {
 		case 1:	//ゲーム画面
 
 			C2D_DrawImageAtRotated(C2D_SpriteSheetGetImage(spriteSheet, 3),80,TOP_HEIGHT/2,0.5f,0,NULL,1.0f,1.0f);
-			if (150.0 <= y && key & KEY_X) {	//Xボタンが押された時に実行する部分
+			if (149.99 <= y && key & KEY_X) {	//Xボタンが押された時に実行する部分
 				play_sound(0);	//ジャンプ音
 				++count;
 				jump += 4;
