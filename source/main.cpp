@@ -15,11 +15,10 @@ C2D_TextBuf g_dynamicBuf;
 C2D_Text dynText;
 C2D_SpriteSheet spriteSheet;
 
-void Sendnotification(const char* titleText, const wchar_t* descText);
+void Sendnotification(const char* titleText, const char* descText);
 
 int main() {
 	// 初期化
-	setlocale(LC_CTYPE, "ja_JP");
 	romfsInit();
 	gfxInitDefault();
 	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
@@ -119,19 +118,19 @@ char *get_buffer() {
 	return buffer;
 }
 
-void Sendnotification(const char* titleText, const wchar_t* descText) {
-    // Initialize News
-    newsInit();
+void Sendnotification(const char* titleText, const char* descText) {
+	// Initialize News
+	newsInit();
 
-    // Convert strings to UTF-16
-    u16 title[128] = {0};
-    u16 message[1024] = {0};
+	// Convert strings to UTF-16
+	u16 title[128] = {0};
+	u16 message[1024] = {0};
     
-    // Convert ASCII to UTF-16
-    for (size_t i = 0, j = strlen(titleText); i < j; i++) title[i] = titleText[i];
-    for (size_t i = 0, j = strlen((const char*)descText); i < j; i++) message[i] = descText[i];
+	// Convert ASCII to UTF-16
+	title = titleText;
+	message = descText;
 
-    // Create notification
-    NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen((const char*)descText) + 2, NULL, 0, false);
-    newsExit();
+	// Create notification
+	NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen(descText) + 2, NULL, 0, false);
+	newsExit();
 }
