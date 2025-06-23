@@ -131,6 +131,6 @@ void Sendnotification(const char* titleText, const wchar_t* descText) {
     for (size_t i = 0, j = strlen((const char*)descText); i < j; i++) message[i] = descText[i];
 
     // Create notification
-    NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen(descText) + 2, NULL, 0, false);
+    NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen((const char*)descText) + 2, NULL, 0, false);
     newsExit();
 }
