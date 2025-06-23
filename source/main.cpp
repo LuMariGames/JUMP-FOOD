@@ -118,7 +118,7 @@ char *get_buffer() {
 	return buffer;
 }
 
-void Sendnotification(const char titleText[128], const char descText[1024]) {
+void Sendnotification(const char titleText[32], const char descText[256]) {
 	// Initialize News
 	newsInit();
 
