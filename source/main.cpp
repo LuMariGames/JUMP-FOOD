@@ -118,7 +118,7 @@ char *get_buffer() {
 	return buffer;
 }
 
-void Sendnotification(const char* titleText, const char* descText) {
+void Sendnotification(const char* titleText, const wchar_t* descText) {
     // Initialize News
     newsInit();
 
@@ -127,8 +127,8 @@ void Sendnotification(const char* titleText, const char* descText) {
     u16 message[1024] = {0};
     
     // Convert ASCII to UTF-16
-    for (size_t i = 0, j = strlen(titleText); i < j; i++) utf8_to_utf16(&title[i], (const uint8_t)(titleText[i]), strlen((const char)titleText[i]));
-    for (size_t i = 0, j = strlen(descText); i < j; i++) utf8_to_utf16(&message[i], (const uint8_t)(descText[i]), strlen((const char)descText[i]));
+    for (size_t i = 0, j = strlen(titleText); i < j; i++) title[i] = titleText[i];
+    for (size_t i = 0, j = strlen(descText); i < j; i++) message[i] = descText[i];
 
     // Create notification
     NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen(descText) + 2, NULL, 0, false);
