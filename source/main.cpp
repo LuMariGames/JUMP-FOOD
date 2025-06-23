@@ -15,8 +15,6 @@ C2D_TextBuf g_dynamicBuf;
 C2D_Text dynText;
 C2D_SpriteSheet spriteSheet;
 
-void Sendnotification(char titleText[128], char descText[1024]);
-
 int main() {
 	// 初期化
 	romfsInit();
@@ -91,7 +89,6 @@ int main() {
 		// 描画終了
 		C3D_FrameEnd(0);
 	}
-	if (count >= 100) Sendnotification("TEST MESSAGE", "100回ジャンプ達成おめでとうございます！");
 
 	// リソースの解放
 	C2D_TextBufDelete(g_dynamicBuf);
@@ -116,21 +113,4 @@ void draw_text(float x, float y, const char *text) {
 char *get_buffer() {
 
 	return buffer;
-}
-
-void Sendnotification(char titleText[32], char descText[256]) {
-	// Initialize News
-	newsInit();
-
-	// Convert strings to UTF-16
-	u16 title[128] = {0};
-	u16 message[1024] = {0};
-    
-	// Convert ASCII to UTF-16
-	title = static_cast<uint16_t>(titleText);
-	message = static_cast<uint16_t>(descText);
-
-	// Create notification
-	NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen(descText) + 2, NULL, 0, false);
-	newsExit();
 }
