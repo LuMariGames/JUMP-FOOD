@@ -128,7 +128,7 @@ void Sendnotification(const char* titleText, const wchar_t* descText) {
     
     // Convert ASCII to UTF-16
     for (size_t i = 0, j = strlen(titleText); i < j; i++) title[i] = titleText[i];
-    for (size_t i = 0, j = strlen(descText); i < j; i++) message[i] = descText[i];
+    for (size_t i = 0, j = strlen((const char*)descText); i < j; i++) message[i] = descText[i];
 
     // Create notification
     NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen(descText) + 2, NULL, 0, false);
