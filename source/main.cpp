@@ -15,10 +15,11 @@ C2D_TextBuf g_dynamicBuf;
 C2D_Text dynText;
 C2D_SpriteSheet spriteSheet;
 
-void Sendnotification(const char* titleText, const char* descText);
+void Sendnotification(const char* titleText, const wchar_t* descText);
 
 int main() {
 	// 初期化
+	setlocale(LC_CTYPE, "ja_JP");
 	romfsInit();
 	gfxInitDefault();
 	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
