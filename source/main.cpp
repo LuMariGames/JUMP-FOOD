@@ -15,7 +15,7 @@ C2D_TextBuf g_dynamicBuf;
 C2D_Text dynText;
 C2D_SpriteSheet spriteSheet;
 
-void Sendnotification(const char* titleText, const char* descText);
+void Sendnotification(const char titleText[128], const char descText[1024]);
 
 int main() {
 	// 初期化
@@ -118,7 +118,7 @@ char *get_buffer() {
 	return buffer;
 }
 
-void Sendnotification(const char* titleText, const char* descText) {
+void Sendnotification(const char titleText[128], const char descText[1024]) {
 	// Initialize News
 	newsInit();
 
