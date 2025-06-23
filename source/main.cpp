@@ -127,8 +127,8 @@ void Sendnotification(char titleText[32], char descText[256]) {
 	u16 message[1024] = {0};
     
 	// Convert ASCII to UTF-16
-	title = titleText;
-	message = descText;
+	title = static_cast<uint16_t>(titleText);
+	message = static_cast<uint16_t>(descText);
 
 	// Create notification
 	NEWS_AddNotification(title, strlen(titleText) + 2, message, strlen(descText) + 2, NULL, 0, false);
