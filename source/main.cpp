@@ -78,7 +78,7 @@ int main() {
 
 			//Xボタンを押した回数を表示
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
-			draw_text(80, TOP_HEIGHT/2, 1.0f, font, get_buffer());
+			draw_text(80, (TOP_HEIGHT/2) - 15, 1.0f, font, get_buffer());
 			draw_text(TOP_WIDTH/2, TOP_HEIGHT - 15, 0.5f, NULL, "PRESS OR HOLD  BUTTON");
 			break;
 		}
