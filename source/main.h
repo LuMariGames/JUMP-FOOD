@@ -17,5 +17,5 @@
 #define BOTTOM_HEIGHT 240
 #define BUFFER_SIZE 160
 
-void draw_text(float x, float y, const char *text);
+void draw_text(float x, float y, C2D_Font bcfnt, const char *text);
 char *get_buffer();
