@@ -78,8 +78,8 @@ int main() {
 
 			//Xボタンを押した回数を表示
 			snprintf(get_buffer(), BUFFER_SIZE, "%d", count);
-			draw_text(80, TOP_HEIGHT/2, font, get_buffer());
-			draw_text(TOP_WIDTH/2, TOP_HEIGHT, NULL, "PRESS OR HOLD  BUTTON");
+			draw_text(80, TOP_HEIGHT/2, 1.0f, font, get_buffer());
+			draw_text(TOP_WIDTH/2, TOP_HEIGHT - 15, 0.5f, NULL, "PRESS OR HOLD  BUTTON");
 			break;
 		}
 
@@ -103,16 +103,15 @@ int main() {
 	return 0;
 }
 
-void draw_text(float x, float y, C2D_Font bcfnt, const char *text) {
+void draw_text(float x, float y, float size, C2D_Font bcfnt, const char *text) {
 
 	C2D_TextBufClear(g_dynamicBuf);
 	C2D_TextFontParse(&dynText, bcfnt, g_dynamicBuf, text);
 	C2D_TextOptimize(&dynText);
-	C2D_DrawText(&dynText, C2D_WithColor | C2D_AtBaseline | C2D_AlignCenter, x, y, 1.0f, 1.0f, 1.0f, C2D_Color32f(1.0f, 1.0f, 1.0f, 1.0f));
+	C2D_DrawText(&dynText, C2D_WithColor | C2D_AlignCenter, x, y, size, size, size, C2D_Color32f(1.0f, 1.0f, 1.0f, 1.0f));
 }
 
 char *get_buffer() {
 
 	return buffer;
 }
-
