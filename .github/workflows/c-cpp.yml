@@ -20,3 +20,4 @@ jobs:
         name: Build
         path: |
           JUMP-FOOD.3dsx
+          romfs/meiryo-bold.bcfnt
